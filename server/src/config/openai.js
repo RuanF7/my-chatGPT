@@ -1,13 +1,12 @@
-const { Configuration, OpenAIApi } = require('openai');
+const OpenAI = require('openai');
 require('dotenv').config();
 
 module.exports = class openai{
 
     static configuration(){
-        const configuration = new Configuration ({
+        return new OpenAI({
             apiKey: process.env.OPENAI_API_KEY,
-        });
-        return new OpenAIApi(configuration)
+        })
     }
     static textCompletion({prompt}){
         return{
